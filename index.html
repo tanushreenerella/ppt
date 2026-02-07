@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Sharp, High-Contrast Typography */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
         
         body { 
@@ -15,11 +14,10 @@
             color: #0f172a; 
             font-family: 'Inter', sans-serif; 
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
         }
 
         .max-container {
-            max-width: 1580px; /* Reduced white space for edge-to-edge feel */
+            max-width: 1580px;
             margin: 0 auto;
         }
 
@@ -27,12 +25,12 @@
             background: #ffffff; 
             border: 1px solid #e2e8f0; 
             border-radius: 28px; 
-            padding: 1.75rem; /* Compact padding */
+            padding: 2rem;
             transition: all 0.3s ease;
         }
 
         .date-hero {
-            font-size: 6.5rem; /* Massive, Sharp, and clear */
+            font-size: 6.5rem; 
             font-weight: 900;
             line-height: 0.8;
             letter-spacing: -0.06em;
@@ -40,37 +38,39 @@
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid #e2e8f0;
         }
     </style>
 </head>
-<body class="p-2 md:p-3">
+<body class="p-2 md:p-4">
 
     <nav class="fixed top-0 left-0 w-full z-50 glass-nav px-8 py-3 flex justify-between items-center">
         <div class="flex items-center gap-4">
             <div class="bg-white p-1 rounded-xl border border-slate-200 flex items-center justify-center shadow-sm" style="height: 45px; width: 45px;">
-                <img src="mujlogo.jpg" alt="MUJ" class="h-full w-auto object-contain" onerror="this.src='https://via.placeholder.com/50?text=MUJ'">
+                <img src="mujlogo.jpg" alt="MUJ" class="h-full w-auto object-contain">
             </div>
             <div class="flex flex-col">
                 <span class="text-xl font-900 tracking-tighter leading-none uppercase">PBL <span class="text-blue-600">2026</span></span>
                 <span class="text-[9px] text-slate-500 font-800 uppercase tracking-widest leading-none mt-1">Computer Science & Engineering</span>
             </div>
         </div>
-        <a href="https://forms.gle/u2ghp6UiDgRkjz1T7" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-2xl font-900 text-[11px] text-white transition uppercase tracking-widest shadow-md">Submit Project Details</a>
+        <div class="flex gap-4">
+            <a href="https://forms.gle/u2ghp6UiDgRkjz1T7" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-2xl font-900 text-xs text-white transition uppercase tracking-widest shadow-md">Submit Project Details</a>
+        </div>
     </nav>
 
     <main class="mt-20 space-y-4 max-container">
         
-        <div class="bg-slate-900 rounded-[2.5rem] p-8 text-white flex justify-between items-center shadow-xl">
+        <div class="bg-slate-900 rounded-[2.5rem] p-10 text-white flex justify-between items-center shadow-xl">
             <div class="text-left">
                 <h1 class="text-4xl md:text-5xl font-900 tracking-tight leading-none uppercase">PBL INFORMATION <span class="text-blue-400 italic">PORTAL</span></h1>
-                <p class="text-slate-400 font-semibold text-lg italic opacity-90 mt-2 tracking-tight">Central Resource Hub for Mid Term Presentation [cite: 2026-02-07].</p>
+                <p class="text-slate-400 font-semibold text-lg italic opacity-90 mt-2">Central Resource Hub for Mid Term Presentation [cite: 2026-02-07].</p>
             </div>
             <div class="hidden lg:block text-right">
                 <p class="text-blue-400 font-900 text-sm uppercase tracking-[0.3em]">Batch 2024 - 2026</p>
-                <p class="text-slate-500 text-xs font-bold mt-1 tracking-widest uppercase">Department Evaluator Access Only</p>
+                <p class="text-slate-500 text-xs font-bold mt-1">Session: 2025 - 2026</p>
             </div>
         </div>
 
@@ -82,8 +82,8 @@
         <div class="grid grid-cols-12 gap-5">
             
             <div id="schedule" class="col-span-12 lg:col-span-8 bento-card border-t-[8px] border-blue-600">
-                <h2 class="text-[10px] font-900 mb-8 tracking-[0.4em] text-slate-400 uppercase italic">Mid Term Presentation Schedule</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <h2 class="text-xs font-900 mb-8 tracking-[0.4em] text-slate-400 uppercase italic">Mid Term Presentation</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div class="space-y-4">
                         <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-[10px] font-900 uppercase tracking-widest">6th Sem | PBL-4</span>
                         <div class="date-hero">FEB 18</div>
@@ -102,50 +102,48 @@
             </div>
 
             <div id="rules" class="col-span-12 lg:col-span-4 bento-card border-t-[8px] border-red-500 bg-slate-50 shadow-inner">
-                <h2 class="text-[10px] font-900 mb-8 tracking-[0.4em] text-slate-400 uppercase italic">Strict Presentation Rules</h2>
+                <h2 class="text-xs font-900 mb-8 tracking-[0.4em] text-slate-400 uppercase italic">Strict Rules</h2>
                 <div class="space-y-5">
                     <div class="flex gap-4">
                         <span class="text-red-500 font-900 text-2xl">01</span>
-                        <p class="text-[13px] font-800 text-slate-800 leading-tight">Hosting via Live Page (GitHub) ONLY.</p>
+                        <p class="text-sm font-800 text-slate-800 leading-tight">Hosting via Live Page (GitHub) ONLY.</p>
                     </div>
                     <div class="flex gap-4">
                         <span class="text-red-500 font-900 text-2xl">02</span>
-                        <p class="text-[13px] font-800 text-slate-800 leading-tight italic">Use FULL Reg ID (23FE... or 24FE...) while filling the form.</p>
+                        <p class="text-sm font-800 text-slate-800 leading-tight">Use FULL Reg ID (23FE... or 24FE...) while filling form.</p>
                     </div>
                     <div class="flex gap-4">
                         <span class="text-red-500 font-900 text-2xl">03</span>
-                        <p class="text-[13px] font-800 text-slate-800 leading-tight">7-8 Mins Presentation + 2 Mins Q&A Max.</p>
+                        <p class="text-sm font-800 text-slate-800 leading-tight">7-8 Mins Presentation + 2 Mins Q&A Max.</p>
                     </div>
                     <div class="flex gap-4">
                         <span class="text-red-500 font-900 text-2xl">04</span>
-                        <p class="text-[13px] font-800 text-slate-800 leading-tight">Strict College Formals mandatory for all.</p>
+                        <p class="text-sm font-800 text-slate-800 leading-tight">Strict College Formals mandatory for all.</p>
                     </div>
                 </div>
             </div>
 
-            <div id="hosting" class="col-span-12 bento-card border-2 border-dashed border-slate-200">
+            <div id="hosting" class="col-span-12 bento-card border-2 border-dashed border-blue-200">
                 <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-xl font-900 uppercase tracking-tighter text-slate-900 flex items-center gap-3">
-                        <i class="fab fa-github"></i> Rapid Hosting Steps
-                    </h2>
-                    <button onclick="copyTemplate()" class="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black text-[10px] hover:bg-blue-600 transition uppercase tracking-[0.2em] shadow-lg shadow-slate-200">Copy Mandatory Template</button>
+                    <h2 class="text-xl font-900 uppercase tracking-tighter text-slate-900"><i class="fab fa-github"></i> Rapid Hosting Steps</h2>
+                    <button onclick="copyTemplate()" class="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black text-[10px] hover:bg-blue-600 transition uppercase tracking-[0.2em] shadow-lg">Copy Mandatory Template</button>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs font-bold text-slate-600">
-                    <div class="p-5 bg-slate-50 rounded-2xl hover:bg-white border border-transparent hover:border-slate-100 transition-all">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm font-bold text-slate-600">
+                    <div class="p-4 bg-slate-50 rounded-2xl">
                         <span class="text-blue-600 text-[10px] uppercase font-900">Step 01</span>
-                        <p class="mt-2">Public Repo: <b class="text-slate-900 block text-sm">pbl_projectname</b></p>
+                        <p class="mt-1">Public Repo: <b class="text-slate-900">pbl_projectname</b></p>
                     </div>
-                    <div class="p-5 bg-slate-50 rounded-2xl hover:bg-white border border-transparent hover:border-slate-100 transition-all">
+                    <div class="p-4 bg-slate-50 rounded-2xl">
                         <span class="text-blue-600 text-[10px] uppercase font-900">Step 02</span>
-                        <p class="mt-2">Upload <b class="text-slate-900 underline cursor-pointer">index.html</b> & <b class="text-slate-900">mujlogo.jpg</b></p>
+                        <p class="mt-1">Upload <b class="text-slate-900 underline cursor-pointer" onclick="copyTemplate()">index.html</b> & <b class="text-slate-900">mujlogo.jpg</b></p>
                     </div>
-                    <div class="p-5 bg-slate-50 rounded-2xl hover:bg-white border border-transparent hover:border-slate-100 transition-all">
+                    <div class="p-4 bg-slate-50 rounded-2xl">
                         <span class="text-blue-600 text-[10px] uppercase font-900">Step 03</span>
-                        <p class="mt-2">Settings > Pages > <b class="text-slate-900 block text-sm italic">Select 'main branch'</b></p>
+                        <p class="mt-1">Settings > Pages > <b class="text-slate-900 italic">Select 'main branch'</b></p>
                     </div>
-                    <div class="p-5 bg-slate-50 rounded-2xl hover:bg-white border border-transparent hover:border-slate-100 transition-all">
+                    <div class="p-4 bg-slate-50 rounded-2xl">
                         <span class="text-blue-600 text-[10px] uppercase font-900">Step 04</span>
-                        <p class="mt-2">Submit <b class="text-slate-900 block text-sm">Live URL</b> via Submission Form</p>
+                        <p class="mt-1">Submit <b class="text-slate-900">Live URL</b> via Submission Form</p>
                     </div>
                 </div>
             </div>
@@ -153,14 +151,31 @@
         </div>
     </main>
 
-    <footer class="py-12 text-center text-slate-300 text-[10px] font-black tracking-[0.6em] uppercase">
-        Manipal University Jaipur • Department of CSE • 2026
+    <footer class="py-10 text-center text-slate-300 text-[10px] font-black tracking-[0.6em] uppercase">
+        Manipal University Jaipur • Dept of CSE • 2026
     </footer>
 
     <script>
-        function copyTemplate() {
-            // Logic to trigger modal or download for pbl_ppt_template.html
-            alert("Mandatory Template Copied! Save as index.html in your 'pbl_projectname' repository.");
+        // FIXED LOGIC: Fetches pbl_template.html from your repository
+        async function copyTemplate() {
+            try {
+                // pbl_template.html file repository mein same location par honi chahiye
+                const response = await fetch('pbl_template.html');
+                
+                if (!response.ok) {
+                    throw new Error('Template file (pbl_template.html) not found in repository!');
+                }
+
+                const text = await response.text();
+                
+                // Copy to clipboard
+                await navigator.clipboard.writeText(text);
+                
+                alert("SUCCESS! Mandatory Template code copied to clipboard.\n\nNow paste it into your new index.html file.");
+            } catch (err) {
+                console.error('Error fetching template:', err);
+                alert("ERROR: Could not fetch template. Ensure 'pbl_template.html' exists in your root folder.");
+            }
         }
     </script>
 </body>
