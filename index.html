@@ -52,7 +52,7 @@
             
             <div id="searchResult" class="mt-6 hidden">
                 <div class="bg-slate-50 border border-slate-200 rounded-[2rem] p-6 text-left">
-                    <p class="text-[10px] font-900 text-slate-400 uppercase tracking-widest mb-4 ml-2 italic">Matching Faculty Results:</p>
+                    <p id="searchStatus" class="text-[10px] font-900 text-slate-400 uppercase tracking-widest mb-4 ml-2 italic">Matching Faculty Results:</p>
                     <div id="resultsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
                 </div>
             </div>
@@ -108,53 +108,50 @@
     </footer>
 
     <script>
-        const panelData = [
-            {"no": "Panel-1", "room": "SDC Discussion Room", "p4": "Dr. Jay Shankar Sharma", "p2": "Dr. Gunjan Pathak", "members": ["Dr. Jay Shankar Sharma", "Dr. Amit Garg", "Dr. Gunjan Pathak", "Dr. Rishi Kumar Shrivastava", "Dr. Nilesh Dubey"]},
-            {"no": "Panel-2", "room": "LHC-217", "p4": "Dr. Kirti Paliwal", "p2": "Dr. Soni Gupta", "members": ["Dr. Kirti Paliwal", "Dr. Rishi Gupta", "Dr. Dibakar Sinha", "Dr. Soni Gupta"]},
-            {"no": "Panel-3", "room": "LHC-201", "p4": "Dr. Mayank Namdev", "p2": "Dr. Madhu Sharma", "members": ["Dr. Mayank Namdev", "Dr. Ajay Kumar", "Dr. Ajit Noonia", "Dr. Madhu Sharma"]},
-            {"no": "Panel-4", "room": "LHC-202", "p4": "Dr. Arpita Baronia", "p2": "Dr. Manmohan Sharma", "members": ["Dr. Arpita Baronia", "Dr. Amit Kumar Gupta", "Dr. Ankur Pandey", "Dr. Girish Sharma", "Dr. Manmohan Sharma"]},
-            {"no": "Panel-5", "room": "LHC-203", "p4": "Dr. Anil Kumar", "p2": "Dr. Mahesh Jangid", "members": ["Dr. Anil Kumar", "Dr. Ankit Shrivastava", "Dr. Ashish Sharma", "Dr. Mahesh Jangid"]},
-            {"no": "Panel-6", "room": "Meeting Room 2", "p4": "Dr. Riddhi Arora", "p2": "Dr. Virendra Meghwal", "members": ["Dr. Riddhi Arora", "Dr. C. S. Lamba", "Dr. Rajat Goel", "Dr. Virendra Meghwal"]},
-            {"no": "Panel-7", "room": "LHC-205", "p4": "Dr. Manu Shrivastava", "p2": "Dr. Sachin Gupta", "members": ["Dr. Manu Shrivastava", "Dr. Sandeep Chaurasia", "Dr. Praneet Saurabh", "Dr. Sachin Gupta", "Dr. Neetu Gupta"]},
-            {"no": "Panel-8", "room": "LHC-206", "p4": "Dr. Neelam Chaplot", "p2": "Dr. Santoshi Rudrakar", "members": ["Dr. Neelam Chaplot", "Dr. Neha Chaudhary", "Dr. Usha Jain", "Dr. Santoshi Rudrakar"]},
-            {"no": "Panel-9", "room": "LHC-207", "p4": "Dr. Ashok Kumar Saini", "p2": "Dr. Juhi Singh", "members": ["Dr. Ashok Kumar Saini", "Dr. Atul Verma", "Dr. Juhi Singh", "Dr. Prashant Vats", "Dr. Arshpreet Kaur"]},
-            {"no": "Panel-10", "room": "LHC-208", "p4": "Dr. Tripti Kulshrestha", "p2": "Dr. Sushama Tanwar", "members": ["Dr. Tripti Kulshrestha", "Dr. Sushama Tanwar", "Dr. Vivek Singh Sikarwar", "Dr. Umashankar Rawat"]},
-            {"no": "Panel-11", "room": "LHC-209", "p4": "Dr. Onkar Singh", "p2": "Dr. Amandeep Cheema", "members": ["Dr. Onkar Singh", "Dr. Surbhi Syal", "Dr. Amandeep Cheema", "Dr. Satyabrata Roy"]},
-            {"no": "Panel-12", "room": "LHC-103", "p4": "Dr. Tapan Kumar Dey", "p2": "Dr. Arvind Mehta", "members": ["Dr. Tapan Kumar Dey", "Dr. Ajay Kumar Kushwaha", "Dr. Arvind Mehta", "Dr. Shashvat", "Dr. Sakshi Shringi"]},
-            {"no": "Panel-13", "room": "LHC-104", "p4": "Dr. Shishir Singh Chauhan", "p2": "Dr. Mohit Kushwaha", "members": ["Dr. Shishir Singh Chauhan", "Dr. Harshika Mathur", "Dr. Mohit Kushwaha", "Dr. Ashish Kumar Dadhich"]},
-            {"no": "Panel-14", "room": "LHC-002", "p4": "Dr. Bali Devi", "p2": "Dr. Susheela Vishnoi", "members": ["Dr. Bali Devi", "Dr. Neha Janu", "Dr. Ashish Verma", "Dr. Gireesh Kumar Kaushik", "Dr. Susheela Vishnoi"]},
-            {"no": "Panel-15", "room": "Discussion Room-1", "p4": "Dr. Lav Upadhyay", "p2": "Dr. Manish Gupta", "members": ["Dr. Lav Upadhyay", "Dr. Shashank Gupta", "Dr. Manish Gupta", "Dr. Sayar Singh Shekhawat", "Dr. Sunita Singhal"]},
-            {"no": "Panel-16", "room": "LHC-210", "p4": "Dr. Bhawani Singh Rathore", "p2": "Dr. Rishav Dubey", "members": ["Dr. Bhawani Singh Rathore", "Dr. Rishav Dubey", "Dr. Aditya Sinha", "Dr. Satpal Singh Kuswaha"]},
-            {"no": "Panel-17", "room": "LHC-211", "p4": "Dr. Vijay Hasanpuri", "p2": "Dr. Divya Thakur", "members": ["Dr. Vijay Hasanpuri", "Dr. Akshay Jadhav", "Dr. Surbhi Sharma", "Dr. Jay Prakash Singh", "Dr. Divya Thakur"]},
-            {"no": "Panel-18", "room": "LHC-212", "p4": "Dr. Babita Tiwari", "p2": "Dr. Rajesh Chaudhary", "members": ["Dr. Babita Tiwari", "Dr. Shikha Mundra", "Dr. Vaishali Chauhan", "Dr. Rajesh Chaudhary"]},
-            {"no": "Panel-19", "room": "LHC 204", "p4": "Dr. Neha Singh", "p2": "Dr. Abhay Bisht", "members": ["Dr. Neha Singh", "Dr. Pallavi", "Dr. Abhay Bisht", "Dr. Anita Shrotriya", "Dr. Mohit Kumar"]},
-            {"no": "Panel-20", "room": "Discussion Room-2", "p4": "Dr. Shweta Sharma", "p2": "Dr. Jeya Krishnan", "members": ["Dr. Shweta Sharma", "Dr. Tarun Jain", "Dr. Varda Pareek", "Dr. Jeya Krishnan"]}
-        ];
+        // REPLACE WITH YOUR ACTUAL DEPLOYED URL
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwBbKxRjGaugsHDwRsR-yPXtdfPllV5NIw11oF9GyuGI6d54PsXFRzE8afqzUaQZfSYgw/exec";
+
+        let timeout = null;
 
         function findPanel() {
             const query = document.getElementById('panelSearch').value.toLowerCase();
             const resDiv = document.getElementById('searchResult');
             const listDiv = document.getElementById('resultsList');
-            if(query.length < 2) { resDiv.classList.add('hidden'); return; }
+            const status = document.getElementById('searchStatus');
 
-            const matches = [];
-            panelData.forEach(p => {
-                p.members.forEach(m => {
-                    if (m.toLowerCase().includes(query)) matches.push({...p, matchedName: m});
-                });
-            });
+            if(query.length < 2) { 
+                resDiv.classList.add('hidden'); 
+                return; 
+            }
 
-            if(matches.length > 0) {
+            // Debounce to prevent too many API calls
+            clearTimeout(timeout);
+            timeout = setTimeout(async () => {
                 resDiv.classList.remove('hidden');
-                listDiv.innerHTML = matches.map(m => `
-                    <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all">
-                        <span class="bg-blue-600 text-white px-2 py-0.5 rounded-full text-[8px] font-900 uppercase tracking-widest leading-none">${m.no}</span>
-                        <h3 class="text-lg font-900 text-slate-900 mt-1">${m.room}</h3>
-                        <p class="text-blue-600 font-bold text-[11px] mb-2 uppercase italic">${m.matchedName}</p>
-                        <div class="text-[9px] text-slate-500 font-bold leading-tight uppercase tracking-widest leading-none">P4: ${m.p4}<br>P2: ${m.p2}</div>
-                    </div>
-                `).join('');
-            } else { resDiv.classList.add('hidden'); }
+                status.innerText = "Searching server...";
+                listDiv.innerHTML = "";
+
+                try {
+                    const response = await fetch(`${SCRIPT_URL}?action=searchPanel&q=${encodeURIComponent(query)}`);
+                    const matches = await response.json();
+
+                    if(matches.length > 0) {
+                        status.innerText = "Matching Faculty Results:";
+                        listDiv.innerHTML = matches.map(m => `
+                            <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all">
+                                <span class="bg-blue-600 text-white px-2 py-0.5 rounded-full text-[8px] font-900 uppercase tracking-widest leading-none">${m.no}</span>
+                                <h3 class="text-lg font-900 text-slate-900 mt-1">${m.room}</h3>
+                                <p class="text-blue-600 font-bold text-[11px] mb-2 uppercase italic">${m.matchedName}</p>
+                                <div class="text-[9px] text-slate-500 font-bold leading-tight uppercase tracking-widest">P4: ${m.p4}<br>P2: ${m.p2}</div>
+                            </div>
+                        `).join('');
+                    } else {
+                        status.innerText = "No results found for '" + query + "'";
+                    }
+                } catch (e) {
+                    status.innerText = "Connection Error. Please try again.";
+                }
+            }, 300); // Wait 300ms after user stops typing
         }
 
         function downloadTemplate() { window.location.href = 'pbl_ppt_template.html'; }
